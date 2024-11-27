@@ -1,10 +1,12 @@
+import { createPreset } from 'fumadocs-ui/tailwind-plugin';
 import type { Config } from "tailwindcss";
-
 import plugin from "tailwindcss/plugin";
 
 const config: Config = {
+  presets: [createPreset()],
   important: true,
   content: [
+    './node_modules/fumadocs-ui/dist/**/*.js',
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./markdown/**/*.{js,ts,jsx,tsx,mdx}",
@@ -123,6 +125,7 @@ const config: Config = {
         background: "var(--bg)",
         foreground: "var(--fg)",
         muted: "var(--muted)",
+        muted2: "var(--gray-11)",
         hover: "var(--hover)",
         border: "var(--border)",
         scrollbar: {

@@ -1,0 +1,126 @@
+---
+title: "Evolving Farmio Accounting Feature: Payment Reconciliation"
+author: 
+  name: "Rayandra Valera"
+  link: "https://twitter.com/rayandrava"
+  handle: "rayandrava"
+time:
+  created: "2024-06-30T14:11:11.816Z"
+  updated: "2024-11-23T22:26:35.526Z"
+---
+
+# Overview
+
+Farmio is a food supply chain platform where food supplier (seller) and buyer meet and manage orders efficiently. Currently, Farmio also extend themselves as a food supply seller supported by the platform they are building. Payments for transactions also intended to happened through Farmio platform.
+
+Payment chasing often lead to dispute and discrepancy, and settling invoice are tedious. Multiple iterations needed to discover the desired working flow and hopefully the latest version are able speed up the user by 80% of time taken to complete payment chasing and reconciliation.
+
+# The Company
+
+Farmio is a B2B food supplier enabled by tech it builds that spans from ordering process, order delivery, payment processing and reconciliation.
+
+# What is payment reconciliation?
+
+While payment chasing is quite straightforward, some readers may don’t have any context of what payment reconciliation is. Payment reconciliation is a financial process in business that involves matching and comparing transaction records to ensure received payments are accurate and consistent with subsequent source such as accounting book or payment invoices. (Stripe, 2023)
+
+This process is crucial to verify the accuracy of financial transactions, avoiding errors, and solving discrepancies.
+
+# The Problem
+
+As both a seller and platform provider, Farmio needed to find a way for more efficient payment reconciliation before integration could happen. With 100+ recurring buyers, many of them didn't have a standardized payment cycle. Some would pay whenever they wanted, causing Farmio to struggle to keep track of payments received from their customers.
+
+The payment team could spend half a day at work (~4 hours) just to manually recap received payments in an Excel sheet and then input it into the system. In the B2B business landscape, late or irregular payment cycles are common, making tracking received payments and solving discrepancies challenging.
+
+# Design Iterations
+
+## First Version
+
+When I joined, the team had already designed an initial payment model using a few assumptions and finance industry knowledge. It didn't work, because:
+
+- A lot of repetitive work (see Image 1)
+- No way to create billing (group of invoices) information. The team had to export the invoices list first → copy the data to billing template → export to PDF → send to customer
+
+
+<Image src="/farmiopayment/image1.png" alt="First payment model processing flow" caption="Image 1 - First payment model processing flow" width={3388} height={2542}/>
+
+
+At this point, no one in the payment team was using the platform except to match invoice lists with Google Sheets and mark invoices as paid. Most of their work still relied on Google Sheets and manual work.
+
+## Second Version
+
+In the second iteration, the team focused on unlocking crucial abilities that previously didn't exist and were slowing down business operations:
+
+<Cards>
+<Card>Minimum configuration of payment terms → Give ability to configure own payment terms</Card>
+<Card>No ability to generate billing to chase customers → Give ability to generate billing for easier chasing</Card>
+<Card>A lot of repetitive work to reconcile payment → Give ability to settle multiple invoices at once</Card>
+</Cards>
+
+
+<Image src="/farmiopayment/image2.png" alt="Planned working flow of 2nd version of payment feature" caption="Image 2 - Planned working flow of 2nd version of payment feature" width={3388} height={2542}/>
+
+
+> "Yeah, I'm the one who's responsible for reconciling payment but never really use the new payment feature." 
+> 
+> *- Marfa, Finance Manager of Farmio*
+
+Observations from the second version:
+- "Export billing" was the only feature being used frequently
+- Customers requested customized billing periods
+- Payment settling and reconciliation remained manual due to irregular customer payments
+
+
+<Image src="/farmiopayment/image3.png" alt="First working flow problem still exist even after redesign" caption="Image 3 - First working flow problem still exist even after redesign" width={3388} height={2542} />
+
+
+## Third Version 
+
+The goal was to create a payment reconciliation feature that is flexible and requires less repetitive work. Key improvements included:
+
+- More customized billing generation
+- Automated invoice clearing based on payment amounts
+- Ability to pay individual or grouped invoices
+
+Demonstrations of the new features:
+
+### Customized Billing Range
+<video controls>
+  <source src="/farmiopayment/generate-billing.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+### Automated Invoice Clearing
+<video controls>
+  <source src="/farmiopayment/invoice-clearing.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+### Payment for Specific Invoice
+<video controls>
+  <source src="/farmiopayment/specific-invoice.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+# Post-Launch Results
+
+First version shipped in late 2023, second version in Q2 2024, and the third version in Q3 2023. **We saw a 50% reduction in time taken to manage customer invoices.**
+
+> "The new payment feature is really useful and easy to use. I don't need to spend time anymore to find and second-guess which invoice I need to mark as paid because the customer often didn't mention which invoice they're paying for."
+> 
+> *- Marfa, Finance Manager of Farmio*
+
+# Lessons Learned
+
+- In software development, products are either dead or iterated. User needs grow and change, so designs must adapt.
+- Understanding UI and UX is just a baseline. Working in SaaS requires understanding underlying database and logic.
+- Staying close to users is crucial. Designers must be gatekeepers of their design, not simply agreeing to every suggestion.
+
+# Additional Details
+
+| Detail | Description |
+|--------|-------------|
+| Timeline | Nov 2023 - July 2024 (iterative process) |
+| Role | Lead Designer |
+| Platform | Web |
+| Team | Software Engineer, CTO |
+| Skills Involved | System thinking, Accounting ledger |

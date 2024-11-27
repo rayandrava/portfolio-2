@@ -1,4 +1,5 @@
 @import url("@radix-ui/colors/gray.css");
+@import url("@radix-ui/colors/olive.css");
 @import url("@radix-ui/colors/gray-alpha.css");
 @import url("@radix-ui/colors/gray-dark.css");
 @import url("@radix-ui/colors/gray-dark-alpha.css");
@@ -22,6 +23,14 @@
   * We are using the Radix UI Colors package to generate a set of color variables that can be used in the project.
   * @see: https://colors.radix-ui.com/
   */
+  @font-face {
+    font-family: "Inter";
+    src: url("/assets/inter/InterVariable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+    font-feature-settings: "ss03" 1, "tnum" 1, "cv10" 1, "cv08" 1, "cv05" 1,
+      "cv06" 1;
+  }
 
   :root {
     --bg: var(--gray-1);
@@ -30,8 +39,8 @@
     --border: var(--gray-4);
     --scrollbar-thumb: var(--gray-4);
     --scrollbar-track: transparent;
-    --selection-background: var(--pink-3);
-    --selection-foreground: var(--pink-11);
+    --selection-background: var(--olive-3);
+    --selection-foreground: var(--olive-11);
     --kbd-background: var(--gray-3);
     --kbd-foreground: var(--gray-11);
     --kbd-border: var(--gray-4);
@@ -40,9 +49,31 @@
     --radius-small: 4px;
     --radius-base: 8px;
     --radius-large: 12px;
+  
+    /* match fumadocs variables */
+
+    --background: var(--bg);
+    --foreground: var(--fg);
+    --muted: var(--gray-8);
+    --muted-foreground: var(--gray-11);
+    --popover: var(--bg);
+    --popover-foreground: var(--fg);
+    --card: var(--bg) !important;
+    --card-foreground: var(--fg) !important;
+    --border: var(--gray-4);
+    --primary: var(--fg);
+    --primary-foreground: var(--bg);
+    --secondary: var(--gray-3);
+    --secondary-foreground: var(--gray-12);
+    --accent: var(--gray-4);
+    --accent-foreground: var(--gray-12);
+    --ring: var(--gray-8);
   }
 
   * {
+    font-family: "Inter", sans-serif;
+    font-feature-settings: "ss03" 1, "tnum" 1, "cv10" 1, "cv08" 1, "cv05" 1,
+      "cv06" 1;
     --webkit-font-smoothing: antialiased;
     --moz-osx-font-smoothing: grayscale;
 
@@ -72,11 +103,12 @@
     h4,
     h5,
     h6 {
-      @apply font-medium;
+      @apply font-semibold;
     }
 
-    h2,
-    h3,
+    p {
+      @apply text-muted2;
+    }
     sub,
     sup {
       @apply text-muted;
@@ -91,11 +123,11 @@
     }
 
     ol {
-      @apply list-decimal;
+      @apply list-decimal text-muted2;
     }
 
     ul {
-      @apply list-disc;
+      @apply list-disc text-muted2;
     }
 
     kbd {
@@ -305,3 +337,27 @@
     }
   }
 }
+
+/* :root.dark {
+  --background: var(--gray-1);
+  --foreground: var(--gray-12);
+  --muted: var(--gray-3);
+  --muted-foreground: var(--gray-11);
+  --popover: var(--gray-1);
+  --popover-foreground: var(--gray-12);
+  --card: var(--gray-1);
+  --card-foreground: var(--gray-12);
+  --border: var(--gray-3);
+  --primary: var(--gray-12);
+  --primary-foreground: var(--gray-1);
+  --secondary: var(--gray-2);
+  --secondary-foreground: var(--gray-12);
+  --accent: var(--gray-3);
+  --accent-foreground: var(--gray-12);
+  --ring: var(--gray-6);
+} */
+
+[data-rmiz-modal-overlay] {
+  background-color: var(--bg) !important; /* Dark overlay regardless of theme */
+}
+

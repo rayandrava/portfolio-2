@@ -2,9 +2,10 @@
 
 import type { ImageProps } from "next/image";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+// import ImageZoom from "next/image";
 import React from "react";
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
 
 interface MDXImageProps extends ImageProps {
   alt: string;
@@ -13,30 +14,30 @@ interface MDXImageProps extends ImageProps {
 
 export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
   const [isImageLoading, setImageLoading] = React.useState(true);
-  const href = props.src.toString();
-
+  const [isOverlayOpen, setIsOverlayOpen] = React.useState(false);
+  
   return (
-    <motion.a className="my-6 flex cursor-pointer flex-col justify-end gap-2" href={href} whileHover={{ scale: 0.975, opacity: 0.9 }}>
-      <div className="relative max-h-96 w-full overflow-hidden rounded-large border border-border">
-        <Image
-          unoptimized
-          alt={alt}
-          width={1000}
-          height={1000}
-          sizes="100vw"
-          style={{
-            objectFit: "contain",
-            width: "100%",
-            height: "auto",
-            objectPosition: "center",
-            WebkitFilter: isImageLoading ? "blur(8px)" : "none",
-            transition: "all 0.5s ease",
-          }}
-          onLoad={() => setImageLoading(false)}
-          {...props}
-        />
-      </div>
-      {caption && <sub className="pt-2 text-center">{caption}</sub>}
-    </motion.a>
+    <>
+      <motion.div 
+        className="mt-4 mb-16 flex cursor-pointer flex-col justify-end gap-2" 
+      >
+        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-large border border-border shadow-sm">
+          <ImageZoom
+            {...props}
+            alt={alt}
+            className="object-contain"
+            onLoad={() => setImageLoading(false)}
+            style={{
+              WebkitFilter: isImageLoading ? "blur(8px)" : "none",
+              transition: "all 0.5s ease",
+            }}
+            // rmiz={{
+
+            // }}
+          />
+        </div>
+        {caption && <sub className="pt-2 text-center">{caption}</sub>}
+      </motion.div>
+    </>
   );
 }

@@ -1,3 +1,7 @@
+import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
 import type { MDXComponents } from "mdx/types";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { PluggableList } from "unified";
@@ -8,7 +12,6 @@ import MDXImage from "@/components/image";
 import Link from "@/components/link";
 import Preview from "@/components/preview";
 import { cn } from "@/lib/cn";
-
 import { MDXRemote } from "next-mdx-remote/rsc";
 import React from "react";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -16,6 +19,19 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 const components: MDXComponents = {
+  Accordion: ({ children, title, ...props }) => (
+    <Accordion title={title} {...props}>
+      {children}
+    </Accordion>
+  ),
+  Accordions: ({ children, ...props }) => (
+    <Accordions {...props}>
+      {children}
+    </Accordions>
+  ),
+  img: (props) => <ImageZoom {...(props as any)} />,
+
+  
   PreviewExample: () => {
     return (
       <div className="min- flex h-10 w-32 items-center justify-center rounded-lg border border-yellow-6 bg-yellow-3 text-yellow-11">
@@ -31,12 +47,27 @@ const components: MDXComponents = {
   },
   Preview: ({ children, codeblock }) => <Preview codeblock={codeblock ? codeblock : undefined}>{children}</Preview>,
   Image: ({ caption, alt, ...props }) => <MDXImage {...props} caption={caption} alt={alt} />,
+  h1: ({ children, id }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h1 id={id} className="text-xl font-semibold mb-2">
+      {children}
+    </h1>
+  ),
   h2: ({ children, id }: React.HTMLAttributes<HTMLHeadingElement>) => {
     if (id?.includes("footnote-label")) {
       return null;
     }
-    return <h2 id={id}>{children}</h2>;
+    return (
+      <h2 id={id} className="text-lg font-semibold mb-3">
+        {children}
+      </h2>
+    );
   },
+  h3: ({ children, id }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h3 id={id} className="text-base font-medium mb-2">
+      {children}
+    </h3>
+  ),
+  
   a: ({ children, href }) => {
     if (href?.startsWith("#user-content-fn-")) {
       return <FootnoteForwardReference href={href}>{children}</FootnoteForwardReference>;
@@ -56,10 +87,10 @@ const components: MDXComponents = {
     </div>
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <th className={cn("border border-border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
+    <th className={cn("border border-border font-medium px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
   ),
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className={cn("border border-border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
+    <td className={cn("border border-border px-4 py-2 text-left text-muted2 [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => {
     if (
@@ -109,7 +140,32 @@ const components: MDXComponents = {
     }
     return <li className={cn("mt-2 ml-2 list-item", className)}>{children}</li>;
   },
+  Card: ({ 
+    children, 
+    icon, 
+    description, 
+    href, 
+    external, 
+    ...props 
+  }) => (
+    <Card
+      icon={icon}
+      description={description}
+      href={href}
+      external={external}
+      {...props}
+    >
+      {children}
+    </Card>
+  ),
+  
+  Cards: ({ children, ...props }) => (
+    <Cards {...props}>
+      {children}
+    </Cards>
+  ),
 };
+
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -121,23 +177,25 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
   return (
     <MDXRemote
       {...props}
-      components={components}
+      components={{
+        ...defaultMdxComponents,
+        ...components,
+        ImageZoom: ImageZoom,
+        img: (props) => <ImageZoom {...props} />,
+      }}
       options={{
         mdxOptions: {
           remarkPlugins: [remarkGfm],
           rehypePlugins: [
             rehypeSlug,
-            [
-              rehypePrettyCode,
-              {
-                theme: {
-                  dark: "github-dark",
-                  light: "github-light",
-                },
-                keepBackground: false,
-                defaultLang: "tsx",
+            [rehypePrettyCode, {
+              theme: {
+                dark: "github-dark",
+                light: "github-light",
               },
-            ],
+              keepBackground: false,
+              defaultLang: "tsx",
+            }],
           ] as PluggableList,
         },
       }}

@@ -1,0 +1,181 @@
+---
+title: "Building Farmio's Design System"
+author: 
+  name: "Rayandra Valera"
+  link: "https://twitter.com/rayandrava"
+  handle: "rayandrava"
+time:
+  created: "2024-04-30T14:11:11.816Z"
+  updated: "2024-11-27T22:26:35.526Z"
+---
+
+
+# The Company
+
+Farmio is a B2B food supplier enabled by tech it builds that spans from ordering process, order delivery, payment processing and reconciliation. Farmio are in full-speed of iteration, pushing the needs for design & development to be as efficient as possible.
+
+<Image 
+  src="/farmiods/farmiodsthumbnail.png" 
+  alt="Project Thumbnail" 
+  caption="Farmio Design System Overview"
+  width={1416} height={1062}
+/>
+
+# The Problem
+
+I joined Farmio as the first in-house designer, while the company previously helped by an external agency. We had 3 platforms and 4+ products.
+
+The problem is **high number of inconsistency during and after hand-off process**, which caused by design not documented well and wireframe being the main source for engineers.
+
+Second priority problem is **navigating and finding specific design in Figma is painful, lack of clues and cues.**
+
+<Image 
+  src="/farmiods/attachment 1.png" 
+  alt="Snapshot of old file before design system" 
+  caption="Multiple platforms designed in one wireframe file"
+  width={1416} height={1062}
+/>
+
+# Intention
+
+Design system were rarely a priority for the company, and it's normal for small-early startups. Many people also sees it as a 'cosmetic' work.
+
+Every month I advocated the design system and operations problem, and gratefully the team gave some space for the adoption.
+
+At the start of the initiative, my goal was:
+
+- Audit for commonly used components
+- Cover 75% of the audit results
+- Make an initiative to make wayfinding in Figma projects easier
+
+# Component Audit
+
+Walking through 3 platforms and 1 mobile app, I curate the frequently used components within those files. I found around 30+ components (excluding variants), which I were able to centralize all of those, in a new design system file.
+
+<Image 
+  src="/farmiods/attachment 2.png" 
+  alt="Component audit list" 
+  caption="Component audit list completed at the end of the project"
+  width={1416} height={1062}
+/>
+
+# New Design System
+
+As a result, we were able to create an overall of 1233 components (including variants), which then helped designers to have better designing and hand-off process.
+
+| Design System | Components | Styles | Variables |
+|--------------|------------|--------|-----------|
+| Old | 226 | 75 | - |
+| New | 1233 | 58 | 317 |
+
+<Image 
+  src="/farmiods/attachment 3.png" 
+  alt="Design System Comparison" 
+  caption="Comparison between old and new design system"
+  width={1416} height={1062}
+/>
+
+# Color Primitives
+
+While the development team are already using MUI Library to speed up their process, designers stays lame with manually built color token and hexes. The previous designer set up semantic and even component color, without the baseline of primitives.
+
+
+**Before**  
+Inconsistent color usage across design
+    <Image 
+      src="/farmiods/attachmente 4.png" 
+      alt="Before primitives color usage"
+      width={1416} height={1062}
+    />
+**After**  
+Semantic colors are based on consistent primitives
+    <Image 
+      src="/farmiods/attachmente 4a.png" 
+      alt="After primitives color usage"
+      width={1416} height={1062}
+    />
+
+
+# Improved File Structure
+
+After a few sprints, a better structure came into life:
+
+- Components are centralized
+- No local reusable components, to prevent inconsistency
+- Dedicated Figma file for each platform
+- No more navigating between wireframes, easier to find which project is which
+
+<Image 
+  src="/farmiods/attachment 6.png" 
+  alt="Before design system centralization" 
+  caption="Component list before and after centralization"
+  width={1416} height={1062}
+/>
+
+# Design Result
+
+Here are some examples of the newly crafted components. The main principles applied:
+
+- Best practices of component (familiarity in dev environment)
+- Accessibility - ensuring legible and proper color contrast
+- Easy to use, alter, and scale
+
+<Image 
+  src="/farmiods/attachmente 7.png" 
+  alt="Component examples" 
+  caption="Snapshot of new components"
+  width={1416} height={1062}
+/>
+
+# Refreshed UI
+
+We considered real-case scenarios:
+
+- What if the chips have long label? Do we allow them?
+- How can the user differentiate between links and text buttons?
+- What if the table have more than 10 columns?
+
+<Image 
+  src="/farmiods/attachmente 8a.png" 
+  alt="Order page before" 
+  caption="Before new design system"
+  width={1416} height={1062}
+/>
+<Image 
+  src="/farmiods/attachmente 8a1.png" 
+  alt="Order page after" 
+  caption="After new design system"
+  width={1416} height={1062}
+/>
+<Image 
+  src="/farmiods/attachmente 8b.png" 
+  alt="Dashboard page before" 
+  caption="Before new design system"
+  width={1416} height={1062}
+/>
+<Image 
+  src="/farmiods/attachmente 8b1.png" 
+  alt="Dashboard page after" 
+  caption="After new design system"
+  width={1416} height={1062}
+/>
+
+
+# Impact & Lesson
+
+- Design system grew by ~295%, with 100% designer adoption
+- Consistency with development increased from 25% to 70%
+- Improved user experience and design-code synchronization
+- Enhanced collaboration between design and engineering teams
+
+
+
+# Additional Details
+
+| Detail | Description |
+|--------|-------------|
+| Timeline | Nov 2023 - Jan 2024 (iterative process)|
+| Role | Lead Designer |
+| Platform | Web & Mobile |
+| Team | Product Designer, Software Engineer |
+| Skills Involved | Design System, Design Operation, UI Design, Collaboration |

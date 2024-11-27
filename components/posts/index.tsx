@@ -1,6 +1,7 @@
 import { formatter } from "@/lib/formatter";
 import { getPosts } from "@/lib/mdx";
 
+
 import { Link as NextViewTransition } from "next-view-transitions";
 import React from "react";
 
@@ -22,7 +23,7 @@ export const Posts = ({ category }: PostProps) => {
   return (
     <div className="mt-6 flex flex-col">
       <NextViewTransition href={`/${category}`} className="flex justify-between">
-        <h2 className="py-2 text-muted capitalize">
+        <h2 className="font-normal py-2 text-muted capitalize">
           {category} {posts.length > 0 && `(${posts.length})`}
         </h2>
       </NextViewTransition>

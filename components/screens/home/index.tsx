@@ -1,7 +1,10 @@
-import { DeployButton } from "@/components/deploy";
 import { Footer } from "@/components/footer";
 import * as FadeIn from "@/components/motion/staggers/fade";
 import { Posts } from "@/components/posts";
+import { 
+  LinkedInLogoIcon,
+  GlobeIcon
+ } from "@radix-ui/react-icons";
 
 const Spacer = () => <div style={{ marginTop: "24px" }} />;
 
@@ -10,22 +13,26 @@ export default function Home() {
     <FadeIn.Container>
       <FadeIn.Item>
         <div className="flex justify-between">
-          <div>
-            <h1>Sylph</h1>
-            <h2>Next.js Portfolio Starter</h2>
+          <div className="flex flex-col w-full">
+            <h1>Rayandra Valera</h1>
+            <h2 className="font-normal text-muted">software, ux, product designer</h2>
           </div>
+          <a href="https://linkedin.com/in/rayandra" target="_blank" rel="noreferrer">
+          <LinkedInLogoIcon className="h-4 w-4 mr-4" />
+          </a>
+          <a href="https://dribbble.com/rayvaltra" target="_blank" rel="noreferrer">
+          <GlobeIcon className="h-4 w-4 rotate-[-10deg]" />
+          </a>
         </div>
       </FadeIn.Item>
       <Spacer />
       <FadeIn.Item>
         <p>
-          Sylph is a Next.js Portfolio Starter that you can use to create your own portfolio website. It is designed to be minimal, lightweight, and fast. It is
-          also highly customizable, so you can easily make it your own. Sylph is perfect for developers, designers, and other creatives who want to showcase
-          their work. To start using Sylph, you can follow the guides below.
+        I simplify complex system into user-friendly interface through user research and design iteration. I’ve built designs that helps to generate million dollars of revenue.
         </p>
       </FadeIn.Item>
       <FadeIn.Item>
-        <Posts category="guides" />
+        <Posts category="projects" />
       </FadeIn.Item>
       <FadeIn.Item>
         <Posts category="examples" />
@@ -34,7 +41,6 @@ export default function Home() {
       <FadeIn.Item>
         <Footer />
       </FadeIn.Item>
-      <DeployButton />
     </FadeIn.Container>
   );
 }

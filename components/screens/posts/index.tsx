@@ -18,7 +18,7 @@ export const Layout = ({ post, route }: Props) => {
   const posts = getPosts(route);
 
   const Seperator = () => {
-    return <div>⋅</div>;
+    return <div className="hidden md:block">⋅</div>;
   };
 
   const PublishedTime = () => {
@@ -36,9 +36,9 @@ export const Layout = ({ post, route }: Props) => {
     <React.Fragment>
       <div className="flex flex-col">
         <div>
-          <h1>{post.title}</h1>
+          <h1 className="text-xl font-semibold mb-2">{post.title}</h1>
         </div>
-        <div className="mt-1 flex gap-2 text-muted text-small">
+        <div className="mt-1 md:flex flex-wrap md:gap-2 gap-0 text-muted text-small ">
           <PublishedTime />
           <Seperator />
           <UpdateTime />
