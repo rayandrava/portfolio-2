@@ -1,0 +1,263 @@
+---
+title: "Building Route Planning from 0 -> 1"
+author: 
+  name: "Rayandra Valera"
+  link: "https://twitter.com/rayandrava"
+  handle: "rayandrava"
+time:
+  created: "2024-11-29T14:11:11.816Z"
+  updated: "2024-11-29T22:26:35.526Z"
+---
+# Company Overview
+
+Farmio is a B2B food supplier enabled by tech it builds that spans from ordering process up to last mile delivery.
+
+# Project Overview
+
+As the customer base grow, Farmio started to handle numerous deliveries every day. Route planner need to handle a lot of time requests while managing driver loads during delivery planning.
+
+In this project, we go all the way from zero to scalable feature through iterative approach. We tried to tailor solution based on real feedback rather than just assumptions.
+
+The goal was to streamline logistics, reduce repetitive workload, and improve operational efficiency for suppliers. We saw remarkably 83% better productivity for route planner after last iteration.
+
+In this project: you'll be able to asses these skills from me:
+
+- System thinking
+- Complex interface simplification
+- Navigate ambiguous project
+- 0 -> 1 projects
+
+### Timeline
+
+Q2 2024 - Q4 2024 (Iterative)
+
+### Role
+
+Lead Designer
+
+### Team
+
+Designer, Software Engineer, CTO
+
+### Platform
+
+Web
+
+# Project Flow: Iterative
+
+1. Problem identification
+    1. User research through observation and user interviews
+    2. Comparative analysis
+2. Design
+    1. Problem framing
+    2. Design ideation
+    3. UI design
+    4. Interaction design
+3. Development
+    1. Design handover
+    2. Design improvements following development constraints
+4. Testing
+    1. Feedback session
+    2. Usability testing
+
+<Image 
+  src="/farmio-route-planning/Route-planning-01.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+
+# Iteration 1: Digitizing Delivery Group
+
+### Problem
+
+Previously, supplier are using google sheet to arrange deliveries.
+
+Repetitive manual workload of bringing information from system to external source then do the work outside become the challenge in this case.
+
+Previous workflow:
+
+Copy order data from system to google sheets → Accumulate data → Organize delivery → Export to driver → done
+
+### Solution
+
+- Implemented postal code-based order grouping
+- Enabled special delivery request capabilities
+- Created flexible logistics data export mechanism
+
+New workflow:
+
+Export logistics data → done
+
+### Outcome
+
+Instant delivery export, but no measurable impact.
+
+<Image 
+  src="/farmio-route-planning/Route-planning-02.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+
+# Iteration 2: Multi-driver delivery and sequencing
+
+### Problem
+
+With growing numbers of delivery, the system lacks a way for Suppliers to assign drivers with a specified number of deliveries per day.
+
+Challenges:
+
+- Difficulty in assigning drivers with different tasks while taking into account a set number of deliveries per day.
+- Manual effort required to assign deliveries to drivers.
+- Can no longer assume that one driver can cope with whole batch of delivery
+
+Previous workflow:
+
+Export pdf → Edit using external app to give remarks and sequence → export to driver - repeat every day
+
+### Solution
+
+- Added multi-driver delivery feature
+- One driver can be assigned to multiple addresses with customized sequence using drag-n-drop interaction
+
+New workflow:
+Create route → choose addresses to include → arrange delivery sequence → preview → export
+
+It might seems that we add more process to the solution, but actually we decrease repetitiveness.
+
+### Outcome
+
+Helps user make customizable driver route but no measurable impact.
+
+<Image 
+  src="/farmio-route-planning/Route-planning-03.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+<Image 
+  src="/farmio-route-planning/Route-planning-04.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+<Image 
+  src="/farmio-route-planning/Route-planning-05.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+<Image 
+  src="/farmio-route-planning/Route-planning-06.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+
+# Iteration 3: Flexible route switching with map visualization
+
+### Problem
+
+Current system ability only allows creation of route, assign address to driver, and sequence the delivery. With scaled number of delivery, this become insufficient.
+
+Challenges:
+
+- Address can be switched between route quite often due to delivery requests, and the existing flow is inefficient
+- No visibility over the proximity of route addresses, urging the needs to open new tab for google maps to make decision
+
+Previous workflow:
+
+Review address → copy the address → paste into google maps → copy 2nd address → paste to google maps → get visualization of distance → not efficient? → switch route or sequence → repeat → done
+
+### Solution
+
+- Utilized kanban board for more advanced route switching and sequencing
+- Provide map as visualization to planned route with marker on each postal code
+
+New workflow:
+
+See Address → See indicator on maps → rearrange route or sequence → done
+
+### Outcome
+
+Versatile route switching with immediate visualization, reducing 50% time taken from 1.5 hours to just 45 minutes.
+
+<Image 
+  src="/farmio-route-planning/Route-planning-07.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+
+# Iteration 4: Preset Route and Address Visualization
+
+In this particular iteration, problem (1) were handled by my design peer as I was working on another project.
+
+### Problems
+
+As the customer base grows, the complexities of delivery is also growing causing time taken to plan route increases to be 3 hours managing a couple hundreds of delivery.
+
+1. System can’t accommodate adhoc changes of driver and delivery address
+2. As one postal code may have multiple customers, it’s overlapping on top of each other and becomes difficult to manage.
+
+Previous workflow
+
+1. Change in driver → re assign routes to new driver → when driver comes back or replaced → re assign
+2. Click one marker → Position on board identified → Identify nearest location/group → bring that nearest group board to be side-to-side with unassigned lane → move the location to the correct lane → repeat → decide sequence
+
+<Image 
+  src="/farmio-route-planning/Route-planning-08.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+
+### Solutions
+
+1. Provide preset routes that can be assigned to any driver without changing the route
+2. Provide tooltip and actions to move overlapping address
+
+New workflow
+
+1. Create a few preset routes depending on the need → assign initial driver → when adhoc changes needed only for certain day, change driver or address on “assigned address”
+2. Identify → click → click move → fill move details → done
+
+### Outcome
+
+Significantly reduce time taken for route planning from 3 hours to 30 minutes, a decrease of 83%.
+
+<Image 
+  src="/farmio-route-planning/Route-planning-09.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/><Image 
+  src="/farmio-route-planning/Route-planning-10.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/><Image 
+  src="/farmio-route-planning/Route-planning-11.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/><Image 
+  src="/farmio-route-planning/Route-planning-12.png" 
+  alt="Route planning 01" 
+  caption="Route planning 01"
+  width={992} height={621}
+/>
+
+# Impact & Learnings
+
+### Impact
+
+- Over the course of time, the user feels empowered and saw notable decrease in time taken to do their job by 83% after latest iteration.
+- The design also able to manage scale of route with a thousand of addresses
+
+### Learnings
+
+- As the sales and operations scale, the problem are evolving thus the solution need to adapt.
+- Understanding user and their problems is just as important as the solution.
+- In the field, the driver faces multiple problems during delivery, and one thing the back office can do is to help suggest the best route sequence.
