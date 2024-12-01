@@ -55,13 +55,11 @@
 
     --background: var(--bg);
     --foreground: var(--fg);
-    --muted: var(--gray-8);
     --muted-foreground: var(--gray-11);
     --popover: var(--bg);
     --popover-foreground: var(--fg);
     --card: var(--bg) !important;
     --card-foreground: var(--fg) !important;
-    --border: var(--gray-4);
     --primary: var(--fg);
     --primary-foreground: var(--bg);
     --secondary: var(--gray-3);
