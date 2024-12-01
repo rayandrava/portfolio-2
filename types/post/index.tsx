@@ -17,6 +17,7 @@ export type Post = {
   };
 
   media?: {
+    thumbnail?: string;
     image?: string;
     video?: string;
     audio?: string;

@@ -4,6 +4,15 @@ import nextMDX from "@next/mdx";
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 const withMDX = nextMDX({

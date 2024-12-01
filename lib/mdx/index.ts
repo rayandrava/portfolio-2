@@ -25,9 +25,12 @@ function readFile(filePath: string): Post | null {
 
 function getFiles(dir: string): string[] {
   try {
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(path.join(process.cwd(), "app", "(posts)", "projects", "posts"), { recursive: true });
+    }
     return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
   } catch (error) {
-    console.error(`Failed to read directory at ${dir}:`, error);
+    console.error(`Failed to read or create directory at ${dir}:`, error);
     return [];
   }
 }

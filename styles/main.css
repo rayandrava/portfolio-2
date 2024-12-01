@@ -23,13 +23,14 @@
   * We are using the Radix UI Colors package to generate a set of color variables that can be used in the project.
   * @see: https://colors.radix-ui.com/
   */
+
   @font-face {
-    font-family: "Inter";
-    src: url("/assets/inter/InterVariable.woff2") format("woff2");
+    font-family: Inter;
     font-weight: 100 900;
-    font-display: swap;
     font-feature-settings: "ss03" 1, "tnum" 1, "cv10" 1, "cv08" 1, "cv05" 1,
       "cv06" 1;
+    src: url("/assets/inter/InterVariable.woff2") format("woff2");
+    font-display: swap;
   }
 
   :root {
@@ -71,12 +72,12 @@
   }
 
   * {
-    font-family: "Inter", sans-serif;
-    font-feature-settings: "ss03" 1, "tnum" 1, "cv10" 1, "cv08" 1, "cv05" 1,
-      "cv06" 1;
     --webkit-font-smoothing: antialiased;
     --moz-osx-font-smoothing: grayscale;
 
+    font-family: Inter, sans-serif;
+    font-feature-settings: "ss03" 1, "tnum" 1, "cv10" 1, "cv08" 1, "cv05" 1,
+      "cv06" 1;
     font-variant-ligatures: common-ligatures;
     text-wrap: pretty;
     text-rendering: optimizelegibility;
@@ -109,6 +110,7 @@
     p {
       @apply text-muted2;
     }
+
     sub,
     sup {
       @apply text-muted;
@@ -118,9 +120,9 @@
       @apply text-small;
     }
 
-    a {
-      @apply transition hover:opacity-50;
-    }
+    /* a {
+      @apply transition hover:opacity-80;
+    } */
 
     ol {
       @apply list-decimal text-muted2;
@@ -361,3 +363,36 @@
   background-color: var(--bg) !important; /* Dark overlay regardless of theme */
 }
 
+
+.container-3d {
+  position: relative;
+  perspective: 1000px;
+  perspective-origin: 100% 0;
+  transform-style: preserve-3d;
+}
+
+.image-3d {
+  position: absolute;
+  top: 48px; /* Adjust as needed */
+  left: 128px; /* Adjust as needed */
+  transition: top 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  transform: translateZ(20px); /* 3D effect */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  opacity: 0.8;
+}
+
+.image-3d:hover {
+  top: 44px; /* Adjusted position on hover */
+  transform: translateZ(20px); /* Maintain 3D effect on hover */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .image-3d {
+    top: 100px; /* Revert to default top position */
+    scale: 1.4;
+    transform: translateZ(20px); /* No hover effect */
+  }
+}
