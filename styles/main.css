@@ -27,8 +27,8 @@
   @font-face {
     font-family: Inter;
     font-weight: 100 900;
-    font-feature-settings: "ss03" 1, "tnum" 1, "cv10" 1, "cv08" 1, "cv05" 1,
-      "cv06" 1;
+    font-feature-settings: "ss07" 1, "ss08" 1, "tnum" 1, "cv10" 1, "cv05" 1,
+      "cv06" 1, "calt" 1;
     src: url("/assets/inter/InterVariable.woff2") format("woff2");
     font-display: swap;
   }
@@ -76,8 +76,8 @@
     --moz-osx-font-smoothing: grayscale;
 
     font-family: Inter, sans-serif;
-    font-feature-settings: "ss03" 1, "tnum" 1, "cv10" 1, "cv08" 1, "cv05" 1,
-      "cv06" 1;
+    font-feature-settings: "ss07" 1, "ss08" 1, "tnum" 1, "cv10" 1, "cv05" 1,
+      "cv06" 1, "calt" 1;
     font-variant-ligatures: common-ligatures;
     text-wrap: pretty;
     text-rendering: optimizelegibility;
@@ -391,7 +391,14 @@
 }
 @media (max-width: 768px) {
   .image-3d {
-    top: 100px; /* Revert to default top position */
+    top: 108px; /* Revert to default top position */
+    /* left: 42px; */
+    scale: 1.4;
+    transform: translateZ(20px); /* No hover effect */
+  }
+  .image-3d:hover {
+    top: 108px; /* Revert to default top position */
+    /* left: 42px; */
     scale: 1.4;
     transform: translateZ(20px); /* No hover effect */
   }
