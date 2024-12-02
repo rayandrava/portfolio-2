@@ -1,12 +1,12 @@
 import "@/styles/main.css";
 
 import type { Metadata } from "next";
-import { RootProvider } from 'fumadocs-ui/provider';
 
 import { Providers } from "@/components/providers";
 import { OpenGraph } from "@/lib/og";
 
 import clsx from "clsx";
+import { RootProvider } from "fumadocs-ui/provider";
 import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {

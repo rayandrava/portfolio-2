@@ -1,8 +1,11 @@
 "use client";
-import { Card } from "../card";
+
+import type { Post } from "@/types/post";
+
 import { Link as NextViewTransition } from "next-view-transitions";
 import React, { useEffect, useState } from "react";
-import type { Post } from "@/types/post";
+
+import { Card } from "../card";
 
 interface PostProps {
   category: string;
@@ -16,13 +19,15 @@ export const Posts = ({ category }: PostProps) => {
     async function fetchPosts() {
       try {
         const response = await fetch(`/api/posts?category=${category}`);
-        if (!response.ok) throw new Error('Failed to fetch posts');
+        if (!response.ok) throw new Error("Failed to fetch posts");
         const data = await response.json();
-        setPosts(data.sort((a: Post, b: Post) => {
-          return new Date(b.time.created).getTime() - new Date(a.time.created).getTime();
-        }));
+        setPosts(
+          data.sort((a: Post, b: Post) => {
+            return new Date(b.time.created).getTime() - new Date(a.time.created).getTime();
+          }),
+        );
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error("Error fetching posts:", error);
       } finally {
         setIsLoading(false);
       }
@@ -39,7 +44,7 @@ export const Posts = ({ category }: PostProps) => {
   return (
     <div className="mt-6 flex flex-col">
       <NextViewTransition href={`/${category}`} className="flex justify-between">
-        <h2 className="py-2 mb-2 capitalize border-b border-border w-full">
+        <h2 className="mb-2 w-full border-border border-b py-2 capitalize">
           {category} {posts.length > 0 && `(${posts.length})`}
         </h2>
         <Seperator />
@@ -49,12 +54,7 @@ export const Posts = ({ category }: PostProps) => {
         <React.Fragment key={post.slug}>
           {/* <Seperator /> */}
           <NextViewTransition href={`/${category}/${post.slug}`} className="flex w-full justify-between py-2">
-            <Card
-              title={post.title}
-              body={post.summary}
-              imageSrc={post.media?.thumbnail || '/default-thumbnail.png'}
-              cardClassName="w-full"
-            />
+            <Card title={post.title} body={post.summary} imageSrc={post.media?.thumbnail || "/default-thumbnail.png"} cardClassName="w-full" />
           </NextViewTransition>
         </React.Fragment>
       ))}

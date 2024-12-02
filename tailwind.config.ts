@@ -1,12 +1,13 @@
-import { createPreset } from 'fumadocs-ui/tailwind-plugin';
 import type { Config } from "tailwindcss";
+
+import { createPreset } from "fumadocs-ui/tailwind-plugin";
 import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   presets: [createPreset()],
   important: true,
   content: [
-    './node_modules/fumadocs-ui/dist/**/*.js',
+    "./node_modules/fumadocs-ui/dist/**/*.js",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./markdown/**/*.{js,ts,jsx,tsx,mdx}",

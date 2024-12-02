@@ -27,8 +27,7 @@
   @font-face {
     font-family: Inter;
     font-weight: 100 900;
-    font-feature-settings: "ss07" 1, "ss08" 1, "tnum" 1, "cv10" 1, "cv05" 1,
-      "cv06" 1, "calt" 1;
+    font-feature-settings: "ss07" 1, "ss08" 1, "tnum" 1, "cv10" 1, "cv05" 1, "cv06" 1, "calt" 1;
     src: url("/assets/inter/InterVariable.woff2") format("woff2");
     font-display: swap;
   }
@@ -50,7 +49,7 @@
     --radius-small: 4px;
     --radius-base: 8px;
     --radius-large: 12px;
-  
+
     /* match fumadocs variables */
 
     --background: var(--bg);
@@ -74,8 +73,7 @@
     --moz-osx-font-smoothing: grayscale;
 
     font-family: Inter, sans-serif;
-    font-feature-settings: "ss07" 1, "ss08" 1, "tnum" 1, "cv10" 1, "cv05" 1,
-      "cv06" 1, "calt" 1;
+    font-feature-settings: "ss07" 1, "ss08" 1, "tnum" 1, "cv10" 1, "cv05" 1, "cv06" 1, "calt" 1;
     font-variant-ligatures: common-ligatures;
     text-wrap: pretty;
     text-rendering: optimizelegibility;
@@ -361,7 +359,6 @@
   background-color: var(--bg) !important; /* Dark overlay regardless of theme */
 }
 
-
 .container-3d {
   position: relative;
   perspective: 1000px;
@@ -373,31 +370,37 @@
   position: absolute;
   top: 48px; /* Adjust as needed */
   left: 128px; /* Adjust as needed */
+  opacity: 0.8;
   transition: top 0.3s ease, transform 0.3s ease; /* Smooth transition */
   transform: translateZ(20px); /* 3D effect */
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  opacity: 0.8;
 }
 
 .image-3d:hover {
   top: 44px; /* Adjusted position on hover */
+  opacity: 1;
   transform: translateZ(20px); /* Maintain 3D effect on hover */
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  opacity: 1;
 }
-@media (max-width: 768px) {
+
+@media (width <= 768px) {
   .image-3d {
     top: 108px; /* Revert to default top position */
-    /* left: 42px; */
-    scale: 1.4;
     transform: translateZ(20px); /* No hover effect */
+
+    /* left: 42px; */
+
+    scale: 1.4;
   }
+
   .image-3d:hover {
     top: 108px; /* Revert to default top position */
-    /* left: 42px; */
-    scale: 1.4;
     transform: translateZ(20px); /* No hover effect */
+
+    /* left: 42px; */
+
+    scale: 1.4;
   }
 }

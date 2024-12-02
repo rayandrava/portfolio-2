@@ -36,9 +36,9 @@ export const Layout = ({ post, route }: Props) => {
     <React.Fragment>
       <div className="flex flex-col">
         <div>
-          <h1 className="text-xl font-semibold mb-2">{post.title}</h1>
+          <h1 className="mb-2 font-semibold text-xl">{post.title}</h1>
         </div>
-        <div className="mt-1 md:flex flex-wrap md:gap-2 gap-0 text-muted text-small ">
+        <div className="mt-1 flex-wrap gap-0 text-muted text-small md:flex md:gap-2 ">
           <PublishedTime />
           <Seperator />
           <UpdateTime />
