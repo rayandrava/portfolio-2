@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
 import { OpenGraph } from "@/lib/og";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import clsx from "clsx";
 import { RootProvider } from "fumadocs-ui/provider";
 import { Inter } from "next/font/google";
@@ -25,6 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={clsx(inter.className)} suppressHydrationWarning>
+      <Analytics />
+      <SpeedInsights />
       <head>
         <link rel="icon" href="/logo.png" />
       </head>
