@@ -1,7 +1,8 @@
+import type { ImageProps } from "../../types/gallery";
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import type { ImageProps } from "../../types/gallery";
 import Modal from "../modal";
 
 export default function Gallery({ images }: { images: ImageProps[] }) {

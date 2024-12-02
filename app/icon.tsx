@@ -8,9 +8,10 @@ export const size = {
 export const contentType = "image/png";
 
 export default function Icon() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   return new ImageResponse(
     <img
-      src="/logo.png"
+      src={`${baseUrl}/logo.png`}
       alt="Favicon"
       style={{
         width: "100%",
