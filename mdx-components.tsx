@@ -1,6 +1,8 @@
 import type { MDXComponents } from "mdx/types";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { PluggableList } from "unified";
+import type { ImageProps } from "next/image";
+import type { DetailedHTMLProps, ImgHTMLAttributes } from "react";
 
 import FootnoteBackReference from "@/components/footnote/back-reference";
 import FootnoteForwardReference from "@/components/footnote/forward-reference";
@@ -19,6 +21,12 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
+// First, let's define the props type for ImageZoom
+interface ImageZoomProps extends Omit<ImageProps, 'src'> {
+  src: string;
+  alt: string;
+}
+
 const components: MDXComponents = {
   Accordion: ({ children, title, ...props }) => (
     <Accordion title={title} {...props}>
@@ -26,7 +34,10 @@ const components: MDXComponents = {
     </Accordion>
   ),
   Accordions: ({ children, ...props }) => <Accordions {...props}>{children}</Accordions>,
-  img: (props) => <ImageZoom {...(props as any)} />,
+  img: (props: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>) => {
+    if (!props.src || !props.alt) return null;
+    return <ImageZoom {...props as unknown as ImageZoomProps} />;
+  },
 
   PreviewExample: () => {
     return (
@@ -165,7 +176,10 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
         ...defaultMdxComponents,
         ...components,
         ImageZoom: ImageZoom,
-        img: (props) => <ImageZoom {...props} />,
+        img: (props: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>) => {
+          if (!props.src || !props.alt) return null;
+          return <ImageZoom {...props as unknown as ImageZoomProps} />;
+        },
       }}
       options={{
         mdxOptions: {
