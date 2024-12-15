@@ -107,6 +107,11 @@
       @apply text-muted2;
     }
 
+    strong,
+    b {
+      @apply font-medium text-foreground;
+    }
+
     sub,
     sup {
       @apply text-muted;
@@ -237,6 +242,11 @@
 
     .footnotes ol li p a {
       z-index: 2;
+    }
+
+    strong,
+    b {
+      @apply font-medium text-foreground;
     }
   }
 
@@ -403,4 +413,22 @@
 
     scale: 1.4;
   }
+}
+
+/* Add these styles to handle the card hover effects */
+
+.card-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image-blur {
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: scale(1.1);
+}
+
+.group:hover .card-image-blur {
+  opacity: 0.7;
 }

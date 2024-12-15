@@ -6,10 +6,10 @@ author:
   handle: "rayandrava"
 time:
   created: "2024-06-30T14:11:11.816Z"
-  updated: "2024-12-02T03:28:19.190Z"
+  updated: "2024-12-15T14:20:23.729Z"
 summary: Automating payment reconciliation to help user save 87,5% time
 media:
-  thumbnail: "/farmio-accounting-thumbnail.png"
+  thumbnail: "/thumbnail-farmio-accounting.png"
 ---
 
 # Overview
@@ -18,10 +18,30 @@ Farmio is a B2B food supply chain platform that connects food suppliers and buye
 
 Imagine spending half a day—roughly 4 hours—manually tracking payments in Excel, wrestling with irregular payment cycles, and drowning in spreadsheet chaos. This was the daily reality for Farmio's finance team.
 
+
+**Project Goals**
+- Streamline payment and financial operational
+- Ensure accurate accounting and financial record
+- Reduce invoice amount dispute
+
+**Key Metrics**
+- Initial Productivity Improvement: 80%
+- Timeline: Q2 2024 - Q4 2024
+- Platform: Web Application
+
+**Team**
+- Role: Lead Designer
+- Composition: Designer, Software Engineer, CTO
+
+**Skills Acquired**
+- System thinking
+- Rapid prototyping
+- Accounting ledger
+
 # The Initial Challenge
 
 With over 100 recurring buyers and no standardized payment cycle, Farmio faced a complex problem:
-- Customers paid at their convenience
+- Customer paid irregularly
 - Tracking payments was time-consuming
 - Manual reconciliation led to constant discrepancies
 
@@ -36,17 +56,16 @@ The initial payment model quickly revealed its limitations:
 - Billing generation was a multi-step, error-prone ordeal
 - Finance team relied more on Google Sheets than the platform
 
-**Result**: The platform was essentially unused, with most work happening outside the system.
+**Result:** The platform was essentially unused, with most work happening outside the system.
 
-# Second Version: Unlocking Potential
+# Second Version: Basic Abilities
 
 We focused on critical capabilities that were previously missing:
 
-<Cards>
-<Card>Minimum configuration of payment terms → Give ability to configure own payment terms</Card>
-<Card>No ability to generate billing to chase customers → Give ability to generate billing for easier chasing</Card>
-<Card>A lot of repetitive work to reconcile payment → Give ability to settle multiple invoices at once</Card>
-</Cards>
+
+- Give ability to configure own payment terms
+- Give ability to generate billing for easier chasing
+- Give ability to settle multiple invoices at once
 
 <Image src="/farmiopayment/image2.png" alt="Planned working flow of 2nd version of payment feature" caption="Image 2 - Planned working flow of 2nd version of payment feature" width={3388} height={2542}/>
 
@@ -73,50 +92,47 @@ Key Improvements:
 Logic Evolution:
 - Prioritize specific invoice payments
 - Automatically clear oldest invoices first
-- Handle unspecified payments intelligently
-- Generate credit notes when appropriate
+- Handle unspecified payments properly
+- Generate credit notes when no invoice left to paid
 
-**Demonstration Features:**
 
-1. **Customized Billing Range**
-<video controls>
-  <source src="/farmiopayment/generate-billing.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+Feature 1  
+**Customized Billing Range**
 
-2. **Automated Invoice Clearing**
-<video controls>
-  <source src="/farmiopayment/invoice-clearing.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+<Vimeo videoId="1038920361" caption="Customized billing range" />
 
-3. **Specific Invoice Payment**
-<video controls>
-  <source src="/farmiopayment/specific-invoice.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+Feature 2  
+**Automated Invoice Clearing**
+<Vimeo videoId="1038920333" caption="Invoice clearing" />
 
-# Fourth Version: Intelligent Bank Reconciliation
+Feature3  
+**Specific Invoice Payment**
+<Vimeo videoId="1038918421" caption="Invoice payment process" />
 
-As our customer base grew, we needed an even more automated solution. Our approach:
+# Fourth Version: Bank Reconciliation
+
+As our customer base grew, we needed an even more automated solution and can't rely solely to previous logic. Our approach:
 
 **Bank Statement Processing:**
 - Upload raw bank statements
 - Automatically translate to a structured table
-- Identify sender and match to companies
+- Identify sender and match to companies or invoicesthat exist in Farmio platform
 - Create rules for processing entries
 
-**Intelligent Handling:**
+**Smart Handling:**
 - Highlight entries exceeding outstanding amounts
 - Allow manual intervention for complex scenarios
 - Provide clear pathways for reconciliation
+<Vimeo videoId="1039135610" caption="Bank reconciliation" />
+
+The third iteration and fourth now co-exist and covers different use case, while waiting for automated payment link integration to come.
 
 # Impact and Results
 
 **Time Saved:**
 - Initial process: 4 hours of manual work
 - After third iteration: 50% reduction in invoice management time
-- After fourth iteration: Reconciliation completed in just 30 minutes
+- After fourth iteration: Reconciliation completed in just 30 minutes, 87.5% time saved compared to the initial model
 
 > "The new payment feature is really useful and easy to use. I don't need to spend time anymore finding and second-guessing which invoice I need to mark as paid."
 > 
@@ -124,16 +140,7 @@ As our customer base grew, we needed an even more automated solution. Our approa
 
 # Key Learnings
 
-1. **Continuous Evolution**: Products are never finished—they grow and adapt with user needs.
-2. **Beyond UI/UX**: Success requires deep understanding of underlying systems and logic.
-3. **User-Centric Design**: Stay close to users, but remain a design gatekeeper.
-4. **Prototype First**: Iterate extensively in design to minimize development complications.
-
-# Additional Project Details
-
-| Detail | Description |
-|--------|-------------|
-| Timeline | Nov 2023 - July 2024 |
-| Role | Lead Designer |
-| Platform | Web |
-| Team | Software Engineer, CTO |
+1. **Continuous evolution**: Products are never finished—they grow and adapt with user needs.
+2. **Beyond design**: Success requires deep understanding of underlying systems and logic.
+3. **User-centricity**: Stay close to users, but remain a design gatekeeper.
+4. **Prototype first**: Iterate extensively in design to minimize development complications.

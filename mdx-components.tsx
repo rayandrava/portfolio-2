@@ -1,7 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { ImageProps } from "next/image";
-import type { DetailedHTMLProps, ImgHTMLAttributes } from "react";
+import type { DetailedHTMLProps, ImgHTMLAttributes, VideoHTMLAttributes } from "react";
 import type { PluggableList } from "unified";
 
 import FootnoteBackReference from "@/components/footnote/back-reference";
@@ -9,6 +9,8 @@ import FootnoteForwardReference from "@/components/footnote/forward-reference";
 import MDXImage from "@/components/image";
 import Link from "@/components/link";
 import Preview from "@/components/preview";
+import MDXVideo from "@/components/video";
+import Vimeo from "@/components/vimeo";
 import { cn } from "@/lib/cn";
 
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
@@ -160,6 +162,14 @@ const components: MDXComponents = {
   ),
 
   Cards: ({ children, ...props }) => <Cards {...props}>{children}</Cards>,
+
+  video: ({ className, children, ...props }: DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>) => (
+    <MDXVideo {...props}>{children}</MDXVideo>
+  ),
+
+  source: (props) => <source {...props} />,
+
+  Vimeo: ({ videoId, caption }) => <Vimeo videoId={videoId} caption={caption} />,
 };
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -180,6 +190,7 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
           if (!props.src || !props.alt) return null;
           return <ImageZoom {...(props as unknown as ImageZoomProps)} />;
         },
+        video: (props: DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>) => <MDXVideo {...props}>{props.children}</MDXVideo>,
       }}
       options={{
         mdxOptions: {

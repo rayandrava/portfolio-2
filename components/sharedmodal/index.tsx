@@ -81,16 +81,28 @@ export default function SharedModal({ index, images, changePhotoId, closeModal, 
             <div className="absolute inset-0 mx-auto flex max-w-5xl items-center justify-center">
               <div className="relative aspect-[3/2] max-h-full w-full">
                 {index > 0 && (
-                  <button type="button" className="-translate-y-1/2 absolute top-[50%] left-3 z-50" onClick={() => changePhotoId(index - 1)}>
+                  <button
+                    type="button"
+                    className="-translate-y-1/2 absolute top-[50%] left-3 z-50 rounded-[6px] bg-gray-2 p-1 shadow-sm backdrop-blur-sm transition-opacity duration-300 hover:opacity-60"
+                    onClick={() => changePhotoId(index - 1)}
+                  >
                     <ArrowLeftIcon className="h-6 w-6" />
                   </button>
                 )}
                 {index + 1 < images.length && (
-                  <button type="button" className="-translate-y-1/2 absolute top-[50%] right-3 z-50" onClick={() => changePhotoId(index + 1)}>
+                  <button
+                    type="button"
+                    className="-translate-y-1/2 absolute top-[50%] right-3 z-50 rounded-[6px] bg-gray-2 p-1 shadow-sm transition-opacity duration-300 backdrop-blur-smhover:opacity-60"
+                    onClick={() => changePhotoId(index + 1)}
+                  >
                     <ArrowRightIcon className="h-6 w-6" />
                   </button>
                 )}
-                <button type="button" onClick={closeModal} className="absolute top-3 right-3 z-50">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="absolute top-3 right-3 z-50 rounded-[6px] bg-gray-2 p-1 shadow-sm backdrop-blur-sm transition-opacity duration-300 hover:opacity-60"
+                >
                   <Cross2Icon className="h-5 w-5" />
                 </button>
               </div>

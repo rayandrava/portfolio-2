@@ -1,0 +1,155 @@
+---
+title: "Simplifying Multiple Product Purchase for tiket.com"
+author: 
+  name: "Rayandra Valera"
+  link: "https://twitter.com/rayandrava"
+  handle: "rayandrava"
+time:
+  created: "2023-01-30T14:11:11.816Z"
+  updated: "2024-12-15T14:20:23.730Z"
+summary: "Designing new bundle product to help user purchase flight and hotel 30% faster."
+media:
+  thumbnail: "/thumbnail-tiket.png"
+---
+
+# Overview
+
+tiket.com is one of the biggest online travel agent (OTA) from Indonesia with more than 17 million users (monthly). Their product ranging from flight, hotels, attractions, car rentals, train, bus, event tickets, and other travel-related services.
+
+Based on data, more than 60% of users that purchase flight will eventually book another additional products. The company will be able to generate more profit if they can sell flight bundled with other products.
+
+However, there are some **problems:**
+
+- Purchasing a flight ticket is a lengthy complicated journey, same goes with booking a hotel.
+- Flight ticket are very dynamic and complex, on top of its complex algorithm, has multiple of product variation.
+
+# Desk Research
+
+We identified the starting point of multiple product selling, the flow, and behavior from existing players on the market. An audit to their design also done to extract insights on how we can make a difference.
+
+<Image src="/tiket/attachmente 6.png" alt="Desk research snapshot" caption="Image 1 - Competitor's location of cross-selling or bundle" width={3388} height={2542} />
+
+# First Iteration
+
+To gain user's perspective of this project, our researcher blasted surveys and conduct interview with selected user cohort. We tested an initial design and see what user think about it. Flight and hotel bundle options is being tested, considering the product popularity and value. We drew our typical stages of customer decision making process, and found a few touchpoints and its respective phase. From that touchpoints, we formulate the design we will be testing.
+
+<Image src="/tiket/context.png" alt="Typical stages of customer decision making process" caption="Image 2 - Typical stages of customer decision making process" width={3388} height={2542} />
+
+<Image src="/tiket/User Interview & Concept Testing.png" alt="Concept testing touchpoints" caption="Image 3 - Concept testing touchpoints" width={3388} height={2542} />
+
+There are a few flow being tested:
+- Choose flight and hotel manually
+- Flight and hotel being recommended
+- Hotel offer when searching for flight (Cross-selling)
+- Hotel offer when considering additional product (Cross-selling)
+
+While all design flow brought to discussion with users, the last two version is barely noticed and talked by them. This project began to focus on first two versions only.
+
+<Image src="/tiket/Old.png" alt="Concept testing flow" caption="Image 4 - Concept testing main flow" width={3388} height={2542} />
+
+# Problem Found
+
+After blasting survey and conducting interview with a few users, we were able to extract valuable insights towards our initial design. Here are synthesized version of what our user think:
+
+1. **Lack of clarity and consistency**\
+   a. User confused with unclear naming in our initial design\
+   b. Most users were not aware of bundled products benefit
+
+2. **Too much content**\
+   a. There are too much information being shown in the search result and booking form\
+   b. From that much important information, user less likely to read them all
+
+3. **Lengthy process**\
+   a. User don't prefer to search all options themselves, they prefer to be recommended or at least have option to filter\
+   b. They will less likely to buy hotel add-ons as it add more process and can be purchased in-person\
+   c. User don't like lengthy and tedious journey to buy two products
+
+4. **Pricing clarity**\
+   a. As we offer more value and discounts, user expect us to show total and detailed price before purchasing\
+   b. User also prefer a way where they can see cheaper options of bundle
+
+# Second Iteration
+
+We turned those problems into this design challenge:
+
+**How might we offer flights and hotel to user with concise information, customizable preferences, and clear pricing benefits?**
+
+We simplified the purchase journey from 7 screens into a more efficient 5 screens by giving flight and hotel bundle recommendation to users.
+
+<Image src="/tiket/New.png" alt="New flow" caption="Image 5 - Product flow after concept testing" width={3388} height={2542} />
+
+## Improvement 1: Search Page Clarity
+
+When we show the search page, user complaints about inconsistency of information being shown. As this being new products, user want to know what is this product and potentially what benefit they can get from the page. As a response to this issue, **we standardize product naming and make product benefit more prominent.**
+
+Solving problem 1a and 1b.
+
+<Image src="/tiket/01before.png" alt="search page clarity before improvement" caption="Before - Search page clarity" width={3388} height={2542} />
+<Image src="/tiket/01after.png" alt="search page clarity after improvement" caption="After - Search page clarity" width={3388} height={2542} />
+
+## Improvement 2: Flexible Search Ability
+
+As choosing both flight and hotel is a very lengthy process, user prefer to have filter upfront so they're able to control what they want to see next. We translate that into a more practical way of filtering, where **the app will generate a relevant recommendation, based on category chosen by the user.**
+
+In this case, the categories are Best Deals - which giving best flights considering time & price, as well as high-star hotels bundled. Subsequent category are cheapest, which simply put cheapest possible bundle they can buy.
+
+Solving problem 3a and 4b.
+
+<Image src="/tiket/02before.png" alt="search ability before improvement" caption="Before - Search ability" width={3388} height={2542} />
+<Image src="/tiket/02after.png" alt="search ability after improvement" caption="After - Search ability" width={3388} height={2542} />
+
+## Improvement 3: Concise Search Result
+
+On the flight and hotel selection process, tons of information shown to users and makes them feel overwhelmed. **We simplify and choose most important information to show in the search result.**
+
+Solving problem 2a and 2b.
+
+<Image src="/tiket/03before.png" alt="search result before improvement" caption="Before - Search result" width={3388} height={2542} />
+<Image src="/tiket/03after.png" alt="search result after improvement" caption="After - Search result" width={3388} height={2542} />
+
+## Improvement 4: Price Clarity & Breakdown
+
+As users are preparing to buy two products, they are expecting **a detailed price and a subtotal prices being shown,** not only individual prices. It is also our opportunity to show them how much they will save by choosing our recommendation.
+
+Solving problem 4a.
+
+<Image src="/tiket/04before.png" alt="pricing breakdown before improvement" caption="Before - Price breakdown" width={3388} height={2542} />
+<Image src="/tiket/04after.png" alt="pricing breakdown after improvement" caption="After - Price breakdown" width={3388} height={2542} />
+
+## Improvement 5: Shorter Purchase Journey
+
+Flight and hotel purchase journey on their own is already a lengthy process. Because of that, we want to **recommend them with the best option possible:**
+
+- Flight ticket with best time and price value
+- Hotel room with best facilities on the list
+
+Solving problem 3a and 3c.
+
+<Image src="/tiket/05before.png" alt="purchase journey before improvement" caption="Before - Purchase journey" width={3388} height={2542} />
+<Image src="/tiket/05after.png" alt="purchase journey after improvement" caption="After - Purchase journey" width={3388} height={2542} />
+
+## Improvement 6: Offer Less Add-Ons
+
+Initially, all add-ons from both flight and hotel were included. Eventually **we take out several add-ons** as user always prefer less content, and don't want an overwhelming screen. Subsequently, they less likely to buy those add-ons as it's also available on-site.
+
+Solving problem 2a and 3b.
+
+<Image src="/tiket/06before.png" alt="add-ons before improvement" caption="Before - Add-ons" width={3388} height={2542} />
+<Image src="/tiket/06after.png" alt="add-ons after improvement" caption="After - Add-ons" width={3388} height={2542} />
+
+# Lesson Learned
+
+- At first, I thought Flight is a simple product. Turns out, it's one of the most complex products I ever handled.
+- Before I handled this project, it had been on the backlog for a while. It was deprioritized for some reason and I should have gathered more information for this project, but I didn't.
+- If I can continue this project, I would love to improve the recommendation system and allow more flexible switching between flight and hotel selection. This would need cross-functional alignment which we didn't have the time to.
+- All in all, the project was a blast of learning the product, the team, and stakeholders which let me equip better skills for future projects.
+
+# Additional Project Details
+
+| Detail | Description |
+|--------|-------------|
+| Timeline | Dec 2021 - Feb 2022 |
+| Role | Lead Designer |
+| Platform | Mobile |
+| Team | Product Managers, UX Researcher, UX Writer, UX Illustrator |
+| Skills | UI Design, UX Design, Strategic Thinking, Stakeholder Management |

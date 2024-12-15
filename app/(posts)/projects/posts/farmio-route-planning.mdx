@@ -6,18 +6,16 @@ author:
   handle: "rayandrava"
 time:
   created: "2024-11-29T14:11:11.816Z"
-  updated: "2024-12-02T03:28:19.190Z"
+  updated: "2024-12-15T14:20:23.730Z"
 summary: Advanced Farmio's route planning and increased user's productivity by 83%
 media:
-  thumbnail: "/farmio-route-planning-thumbnail.png"
+  thumbnail: "/thumbnail-farmio-route-planning.png"
 ---
-# Company Context
 
-Farmio is a B2B food supplier leveraging technology to streamline the entire delivery ecosystem—from order placement to last-mile delivery. As their customer base expanded, the complexity of managing daily deliveries grew exponentially.
+# Overview
+Farmio is a B2B food supplier leveraging technology to streamline the entire delivery ecosystem—from order placement to last-mile delivery. As their customer base expanded, the complexity of managing daily deliveries grew exponentially.  
 
-# Project Overview
-
-**Challenge**
+**Challenge**  
 Route planners were drowning in time-consuming manual processes, struggling to efficiently manage driver loads and delivery planning. The existing workflow was fragmented, repetitive, and increasingly unsustainable.
 
 **Project Goals**
@@ -31,36 +29,26 @@ Route planners were drowning in time-consuming manual processes, struggling to e
 - Timeline: Q2 2024 - Q4 2024
 - Platform: Web Application
 
-**Project Team**
+**Team**
 - Role: Lead Designer
 - Composition: Designer, Software Engineer, CTO
 
-<Image 
-  src="/farmio-route-planning/Route-planning-01.png" 
-  alt="Route planning 01" 
-  caption="Route planning 01"
-  width={992} height={621}
-/>
+**Skills Acquired**
+- User research
+- Complex UI and interaction
+- Deconstructing complexity
+- Interaction cost analysis
+
 
 # Design Approach
+Although this project was iterative, the typical process of each iteration was as follows:
 
-**Methodology**
-1. **Problem Identification**
-   - Conducted user research through direct observation
-   - Performed comparative analysis
-   - Deeply understood user pain points
-
-2. **Design Process**
-   - Framed complex problems
-   - Generated design ideas
-   - Developed UI and interaction design
-   - Collaborated closely with engineering team
-
-3. **Development & Testing**
-   - Facilitated design handover
-   - Iterated based on development constraints
-   - Conducted feedback sessions
-   - Performed usability testing
+<Image 
+  src="/farmio-route-planning/design-approach.png" 
+  alt="Design approach" 
+  caption="Design approach"
+  width={3388} height={2542}
+/>
 
 # Iteration 1: Digitizing Delivery Grouping
 
@@ -72,21 +60,22 @@ Route planners were drowning in time-consuming manual processes, struggling to e
 **Solution**
 - Implemented postal code-based order grouping
 - Enabled special delivery request capabilities
-- Created flexible logistics data export mechanism
-
-**Outcome**:
-Instant delivery export, but limited initial impact
 
 <Image 
-  src="/farmio-route-planning/Route-planning-02.png" 
-  alt="Route planning 02" 
-  caption="Route planning 02"
-  width={992} height={621}
+  src="/farmio-route-planning/iteration-1-postal-code.png" 
+  alt="Postal code-based delivery grouping" 
+  caption="Postal code-based delivery grouping"
+  width={3388} height={2542}
 />
+
+**Outcome**  
+Instant delivery export, but limited initial impact  
+
+<Vimeo videoId="1038917991" caption="First iteration" />
 
 # Iteration 2: Multi-Driver Delivery Optimization
 
-**Challenges**
+**Challenges**  
 - Difficulty assigning drivers with specific delivery quotas
 - Manual, time-consuming delivery assignment
 - Inability to handle increasingly complex delivery distributions
@@ -96,36 +85,8 @@ Instant delivery export, but limited initial impact
 - Introduced drag-and-drop interface for delivery sequencing
 - Allowed customized driver route assignments
 
-**New Workflow**
-Create route → Select addresses → Arrange delivery sequence → Preview → Export
 
-<Image 
-  src="/farmio-route-planning/Route-planning-03.png" 
-  alt="Route planning 03" 
-  caption="Route planning 03"
-  width={992} height={621}
-/>
-
-<Image 
-  src="/farmio-route-planning/Route-planning-04.png" 
-  alt="Route planning 04" 
-  caption="Route planning 04"
-  width={992} height={621}
-/>
-
-<Image 
-  src="/farmio-route-planning/Route-planning-05.png" 
-  alt="Route planning 05" 
-  caption="Route planning 05"
-  width={992} height={621}
-/>
-
-<Image 
-  src="/farmio-route-planning/Route-planning-06.png" 
-  alt="Route planning 06" 
-  caption="Route planning 06"
-  width={992} height={621}
-/>
+<Vimeo videoId="1039135900" caption="Second iteration" />
 
 # Iteration 3: Route Visualization and Switching
 
@@ -139,71 +100,60 @@ Create route → Select addresses → Arrange delivery sequence → Preview → 
 - Integrated map visualization with postal code markers
 - Enabled quick route and sequence rearrangement
 
-**Outcome**: 
+**Outcome**  
 Reduced route planning time from 1.5 hours to 45 minutes
 
-<Image 
-  src="/farmio-route-planning/Route-planning-07.png" 
-  alt="Route planning 07" 
-  caption="Route planning 07"
-  width={992} height={621}
-/>
+<Vimeo videoId="1039389277" caption="Third iteration" />
 
 # Iteration 4: Preset Routes and Advanced Address Management
 
 **Challenges**
-- Growing delivery complexity
-- Difficulty managing multiple customers per postal code
-- Time-consuming route reassignments
+- Growing delivery complexity making previous solution is not time efficient
+- When managing multiple customers per postal code, user are struggling because the visual marker in the map is overlapping on top of each other
+
+<Image 
+  src="/farmio-route-planning/map-problem.png" 
+  alt="Overlapping marker illustration" 
+  caption="Overlapping marker illustration"
+  width={3388} height={2542}
+/>
+<Image 
+  src="/farmio-route-planning/marker-old.png" 
+  alt="old marker flow" 
+  caption="Old marker flow"
+  width={3388} height={2542}
+/>
 
 **Solutions**
 - Created preset routes adaptable to different drivers
 - Developed tooltip and action system for overlapping addresses
 - Simplified ad-hoc driver and address changes
 
-**Outcome**: 
-Dramatically reduced route planning time from 3 hours to 30 minutes (83% improvement)
-
 <Image 
-  src="/farmio-route-planning/Route-planning-08.png" 
-  alt="Route planning 08" 
-  caption="Route planning 08"
-  width={992} height={621}
+  src="/farmio-route-planning/preset-unassigned.png" 
+  alt="Preset routes and assigned delivery explanation" 
+  caption="Preset routes and assigned delivery explanation"
+  width={3388} height={2542}
 />
 
 <Image 
-  src="/farmio-route-planning/Route-planning-09.png" 
-  alt="Route planning 09" 
-  caption="Route planning 09"
-  width={992} height={621}
+  src="/farmio-route-planning/marker-new.png" 
+  alt="New marker flow" 
+  caption="New marker flow"
+  width={3388} height={2542}
 />
 
-<Image 
-  src="/farmio-route-planning/Route-planning-10.png" 
-  alt="Route planning 10" 
-  caption="Route planning 10"
-  width={992} height={621}
-/>
 
-<Image 
-  src="/farmio-route-planning/Route-planning-11.png" 
-  alt="Route planning 11" 
-  caption="Route planning 11"
-  width={992} height={621}
-/>
+**Outcome**  
+Dramatically reduced route planning time from 3 hours to 30 minutes **(83% reduce in time taken)**
 
-<Image 
-  src="/farmio-route-planning/Route-planning-12.png" 
-  alt="Route planning 12" 
-  caption="Route planning 12"
-  width={992} height={621}
-/>
+<Vimeo videoId="1039389224" caption="Third iteration" />
 
 # Project Impact
 
 **Quantitative Achievements**
 - 83% reduction in route planning time
-- Scalable system managing thousands of addresses
+- Scalable system that's projected able to handle a thousand of addresses at a time
 - Simplified complex logistics workflow
 
 **Qualitative Insights**
@@ -214,8 +164,5 @@ Dramatically reduced route planning time from 3 hours to 30 minutes (83% improve
 # Key Learnings
 
 1. Solution design must evolve with operational scale
-2. Deep user understanding trumps assumptions
+2. Deep user understanding beat assumptions
 3. Iterative approach is crucial in complex system design
-4. Back-office support can significantly impact field operations
-
-*Design is not just about aesthetics—it's about solving real problems with elegant, functional solutions.*
