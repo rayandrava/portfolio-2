@@ -55,7 +55,7 @@ export default function Home() {
             <h2 className="font-normal text-muted">software, ux, product designer</h2>
           </div>
           <div className="flex flex-row gap-4">
-            <a href="https://linkedin.com/in/rayandra" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/rayandra" target="_blank" rel="noreferrer">
               <div className="flex flex-row items-center justify-center gap-1 text-muted2 text-sm hover:text-foreground hover:underline">
                 LinkedIn
                 <ArrowUpRightIcon className="h-4 w-4" />
